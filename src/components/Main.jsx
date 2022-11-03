@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from "react";
-import {Navbar, Posts} from "./"
+import { getPosts, getTags } from "../apiFunctions";
+import {Navbar, Posts, Tags} from "./"
+
 
 const Main = () => {
   const [posts, setPosts] = useState([]);
-    
+  const [tags, setTags]= useState([])
+
   useEffect(() => {
       async function fetchPosts() {
           const allPosts = await getPosts();
@@ -12,15 +15,22 @@ const Main = () => {
       fetchPosts();
   }, [])
 
+  useEffect(() => {
+    async function fetchTags() {
+        const allTags = await getTags();
+        setTags(allTags);
+    }
+    fetchTags();
+}, [])
+
   return (
     <div id="main">
 <Navbar/>
-<Posts posts={posts}/>
+<Posts posts={posts} tags={tags} />
+
 
   </div>
   );
 };
 
 export default Main;
-
-
