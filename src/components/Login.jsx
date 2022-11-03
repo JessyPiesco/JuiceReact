@@ -1,4 +1,5 @@
 import React from "react";
+import { logInUser } from "../apiFunctions";
 
 const Login = () => {
   return (
