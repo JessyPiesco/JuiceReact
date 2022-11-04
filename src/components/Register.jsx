@@ -7,10 +7,13 @@ const Register = (props) => {
     event.preventDefault()
     const username = event.target[0].value
     const password = event.target[1].value
-    const registeringUser = await registerUser(username, password)
-    const token = registeringUser.token
-    localStorage.removeItem('token')
-    localStorage.setItem('token', token)
+    const name = event.target[2].value
+    const location = event.target[3].value
+    const registeringUser = await registerUser(username, password, name, location)
+    
+    // const token = registeringUser.token
+    // localStorage.removeItem('token')
+    // localStorage.setItem('token', token)
   }
 
   return (

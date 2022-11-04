@@ -1,4 +1,4 @@
-const BASE = "https://afternoon-bayou-17974.herokuapp.com/api";
+const BASE = "http://localhost:8080/api";
 
 export async function getPosts(){
 
@@ -34,18 +34,13 @@ const result = await response.json();
 return result.users
 }
 
-export async function registerUser(username, password){
+export async function registerUser(username, password, name, location){
     const options = {
         method: "POST",
         headers:{
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-            user: {
-                username,
-                password,
-            },
-        }),
+        body: JSON.stringify({ username, password, name, location } ),
     };
     const response = await fetch(`
     ${BASE}/users/register`, options);
