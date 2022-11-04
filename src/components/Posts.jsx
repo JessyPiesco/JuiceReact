@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getPosts } from "../apiFunctions";
+import { NavLink } from "react-router-dom";
 import {Tags} from "./"
 
 const Posts = (props) => {
@@ -10,6 +11,7 @@ const tags =props.tags
     <div>
     <div id="posts">
       <h2>Your Posts</h2>
+      <NavLink to="/makepost"> New Post </NavLink>
     </div>
     <div id="posts">{posts.map((post)=>{
       return(

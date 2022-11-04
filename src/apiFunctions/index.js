@@ -22,16 +22,15 @@ const options = {
         "Content-Type": "application/json",
     },
     body: JSON.stringify({
-        user: {
+
             username,
             password,
-        },
+
 }),
 };
 const response = await fetch(`${BASE}/users/login`, options);
 const result = await response.json();
-
-return result.users
+return result
 }
 
 export async function registerUser(username, password, name, location){
@@ -45,6 +44,7 @@ export async function registerUser(username, password, name, location){
     const response = await fetch(`
     ${BASE}/users/register`, options);
     const result = await response.json();
-    return result.users
+    console.log(result)
+    return result
 
 }

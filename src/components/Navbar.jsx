@@ -1,7 +1,9 @@
 import React from "react";
 import {NavLink} from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const setLoggedIn = props.setLoggedIn
+  const loggedIn = props.loggedIn
   return (
     <div id="navbar">
       <h2> JuiceBox</h2>
@@ -9,9 +11,17 @@ const Navbar = () => {
       <NavLink id= "npost" to= "/">
         Posts
         </NavLink>
-        <NavLink id="nlogin" to ="/login">
+        {loggedIn ?
+      (
+        <NavLink className="logout" onClick={()=>{
+          localStorage.removeItem("token");
+          setLoggedIn(false);
+        }}>LogOut</NavLink>
+      ) :   ( <NavLink id="nlogin" to ="/login">
           Login/Register
-        </NavLink>
+        </NavLink>)
+      }
+
 
       </div>
 
