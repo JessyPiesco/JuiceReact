@@ -10,10 +10,11 @@ const Register = (props) => {
     const name = event.target[2].value
     const location = event.target[3].value
     const registeringUser = await registerUser(username, password, name, location)
-    
     // const token = registeringUser.token
+    // console.log(token)
     // localStorage.removeItem('token')
     // localStorage.setItem('token', token)
+    //may cause glitch with token 
   }
 
   return (

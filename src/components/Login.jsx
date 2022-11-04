@@ -3,8 +3,9 @@ import { logInUser } from "../apiFunctions";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({getLoggedInUser}) => {
+const Login = ({getLoggedInUser}, {token}) => {
   const [userName, setUserName]= useState([]);
+  const navigate = useNavigate()
 
 
   async function handleSubmit(event) {
@@ -12,7 +13,7 @@ const Login = ({getLoggedInUser}) => {
     const username = event.target[0].value;
     const password = event.target[1].value;
     const logingUser = await logInUser(username, password);
-    const token = logingUser.token;
+    // const token = logingUser.token;
     localStorage.setItem("token", token);
     setUserName(userName)
     getLoggedInUser()

@@ -9,6 +9,7 @@ const Main = () => {
   const [tags, setTags]= useState([]);
   const [logIn, setLogIn] = useState("")
   const [loggedIn, setLoggedIn] = useState(false)
+  // const [token, setToken] = useState("")
 
   useEffect(() => {
       async function fetchPosts() {
@@ -32,17 +33,18 @@ const getLoggedInUser = async () => {
   setLoggedIn(true)
 }
 useEffect (()=> {
-  if (localStorage.getItem("token")){
+  const token = localStorage.getItem("token")
+  if (token){
     getLoggedInUser()
   }
-}, [])
+}, []) 
 
   return (
     <div id="main">
 <Navbar/>
 
 <Routes>
-  <Route path ="/login" element ={<Login getLoggedInUser={getLoggedInUser}/>}/>
+  <Route path ="/login" element ={<Login getLoggedInUser={getLoggedInUser} />}/>
   <Route path="/" element={<Posts posts={posts} tags={tags}/>}/>
   <Route path="login/register" element={<Register />} />
 
