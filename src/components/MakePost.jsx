@@ -5,6 +5,15 @@ const [title, setTitle]= useState("")
 const [content, setContent]=useState("")
 const [tags, setTags]= useState("")
 
+async function handleSubmit(event){
+event.preventDefault();
+try {
+
+} catch (error) {
+
+}
+}
+
   return (
   <form>
       <input placeholder="Title"></input>
