@@ -15,6 +15,7 @@ body {
   color: white;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 #posts{
@@ -29,4 +30,20 @@ margin: 10px;
   margin-bottom: 10px;
   border: solid black 1px;
   padding: 15px;
+}
+
+.links{
+  display: flex;
+  margin: 15px;
+}
+
+#npost{
+display: flex;
+margin-right: 15px;
+color: white;
+}
+
+#nlogin{
+  display: flex;
+  color: white;
 }

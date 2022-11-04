@@ -6,15 +6,15 @@ const Navbar = () => {
     <div id="navbar">
       <h2> JuiceBox</h2>
       <div className="links">
-      <NavLink to= "/">
+      <NavLink id= "npost" to= "/">
         Posts
         </NavLink>
-        <NavLink to ="/login">
+        <NavLink id="nlogin" to ="/login">
           Login/Register
         </NavLink>
 
       </div>
-      
+
     </div>
   );
 };
