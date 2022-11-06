@@ -1,4 +1,4 @@
-const BASE = "http://localhost:8080/api";
+const BASE = "https://afternoon-bayou-17974.herokuapp.com/api";
 
 export async function getPosts(){
 
@@ -57,16 +57,16 @@ export async function createPost(title, content, tags){
             'Authorization': `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({
-           
+
                 title,
                 content,
                 tags,
-            
+
         }),
     }
     const response = await fetch (`${BASE}/posts`, options);
     const result = await response.json();
-   
+
     console.log(response, "response")
     console.log(result, "result api")
     return result.posts
