@@ -48,3 +48,27 @@ export async function registerUser(username, password, name, location){
     return result
 
 }
+
+export async function createPost(title, content, tags){
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+            'Authorization': `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+           
+                title,
+                content,
+                tags,
+            
+        }),
+    }
+    const response = await fetch (`${BASE}/posts`, options);
+    const result = await response.json();
+   
+    console.log(response, "response")
+    console.log(result, "result api")
+    return result.posts
+}
+console.log(createPost)

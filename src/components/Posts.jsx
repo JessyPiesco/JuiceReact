@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getPosts } from "../apiFunctions";
-import { NavLink } from "react-router-dom";
+import { NavLink, useResolvedPath } from "react-router-dom";
 import {Tags} from "./"
 
 const Posts = (props) => {
@@ -14,9 +14,11 @@ const tags =props.tags
       <NavLink to="/makepost"> New Post </NavLink>
     </div>
     <div id="posts">{posts.map((post)=>{
+        console.log(post, "line 17")
       return(
     <div className="IPosts" key={`post-${post.id}`}>
-    <div> {post.title}</div>
+    <div>{post.title}</div>
+    <div>Created by: {post.author.username}</div>
     <div>{post.content}</div>
     <Tags tags={post.tags}/>
 

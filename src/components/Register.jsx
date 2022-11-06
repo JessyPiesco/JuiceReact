@@ -1,7 +1,9 @@
 import React from "react";
 import { registerUser } from "../apiFunctions";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Register = (props) => {
+  const navigate = useNavigate()
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -14,6 +16,13 @@ const Register = (props) => {
     localStorage.removeItem('token')
     localStorage.setItem('token', token)
     //may cause glitch with token
+    if(token){
+      navigate("/login")
+      ;
+    alert("Thank you for signing up. Please log in.")}
+      if(!token){ 
+        alert(registeringUser.message)
+      }
   }
 
   return (
